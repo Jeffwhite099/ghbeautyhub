@@ -40,3 +40,48 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: 64px; /* Height of the fixed navbar */
+}
+
+@media (min-width: 600px) {
+  main {
+    padding-top: 70px; /* Slightly taller navbar on larger screens */
+  }
+}
+
+/* Ensure the footer stays at the bottom */
+footer {
+  margin-top: auto;
+}
+
+/* Smooth scrolling for the entire app */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e91e63;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c2185b;
+}

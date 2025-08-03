@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Import pages
+import Home from './pages/Home'
+import Login from './pages/auth/Login'
+import Register from './pages/auth/Register'
+import Services from './pages/Services'
+import Stylists from './pages/Stylists'
+import Booking from './pages/Booking'
+import BookingHistory from './pages/BookingHistory'
+import Profile from './pages/Profile'
+import CustomerDashboard from './pages/dashboard/CustomerDashboard'
+import StylistDashboard from './pages/dashboard/StylistDashboard'
+import AdminDashboard from './pages/dashboard/AdminDashboard'
 
+// Import layout components
+import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
+
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/stylists" element={<Stylists />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/booking-history" element={<BookingHistory />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard/customer" element={<CustomerDashboard />} />
+            <Route path="/dashboard/stylist" element={<StylistDashboard />} />
+            <Route path="/dashboard/admin" element={<AdminDashboard />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   )
 }
 
